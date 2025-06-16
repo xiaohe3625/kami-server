@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES2020",                      // 转译为的目标JS版本
-    "module": "ESNext",                      // 使用原生 ES Modules
-    "moduleResolution": "node",              // 模块解析方式
-    "esModuleInterop": true,                 // 兼容 commonjs 模块导入
-    "forceConsistentCasingInFileNames": true,// 强制文件名大小写一致
-    "strict": true,                          // 开启严格类型检查
-    "skipLibCheck": true,                    // 跳过 node_modules 类型检查
-    "outDir": "dist",                        // 输出目录
-    "resolveJsonModule": true,               // 允许导入 .json 文件
-    "isolatedModules": true,                 // 与 Vercel 构建兼容
-    "types": ["node"],                       // 添加 Node.js 类型声明
-    "allowJs": true,                         // 允许 JS 文件参与编译
-    "noEmit": true                           // 不实际输出文件（Vercel 不需要）
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "types": ["node"],
+    "allowJs": true
+    // 删除 noEmit，确保输出 JS 文件
   },
   "include": ["api/**/*", "lib/**/*", "shared/**/*"],
   "exclude": ["node_modules", "dist"]
