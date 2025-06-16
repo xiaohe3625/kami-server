@@ -1,16 +1,15 @@
 import express from "express";
-import dotenv from "dotenv";
+import cors from "cors";
 import { registerRoutes } from "./routes/index";
 
-dotenv.config();
-
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(cors()); // 允许所有跨域请求
 app.use(express.json()); // 解析 JSON 请求体
 
-// 注册所有路由
-registerRoutes(app).then(() => {
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+registerRoutes(app);
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
