@@ -77,3 +77,15 @@ export async function getStats() {
 export async function getRecentActivities(limit: number): Promise<Activity[]> {
   return activities.slice(0, limit);
 }
+
+// 关键：导出一个统一对象
+export const storage = {
+  getCardCode,
+  createCardCode,
+  updateCardCode,
+  getCardCodes,
+  deleteCardCode,
+  createActivity,
+  getStats,
+  getRecentActivities,
+};
