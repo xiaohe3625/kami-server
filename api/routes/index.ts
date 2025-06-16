@@ -17,6 +17,11 @@ function generateCardCode(prefix?: string): string {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // 根目录返回状态信息，避免访问根路径404
+  app.get("/", (req: Request, res: Response) => {
+    res.json({ message: "Kami Server API is running" });
+  });
+
   // 生成卡密
   app.post("/api/generate", async (req: Request, res: Response) => {
     try {
@@ -145,7 +150,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // 其他接口示范：获取卡密列表
+  // 获取卡密列表
   app.get("/api/cards", async (req: Request, res: Response) => {
     try {
       const { status, search } = req.query as { status?: string; search?: string };
