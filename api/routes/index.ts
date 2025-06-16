@@ -1,7 +1,7 @@
 import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 // 这里示例用伪 storage，你替换成真实的数据库操作模块
-import { storage } from "../storage"; 
+import { storage } from "../storage.js"; 
 import { z } from "zod";
 
 function generateCardCode(prefix?: string): string {
