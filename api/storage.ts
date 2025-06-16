@@ -43,7 +43,8 @@ export async function getCardCodes(filter?: { status?: string; search?: string }
     result = result.filter(c => c.status === filter.status);
   }
   if (filter?.search) {
-    result = result.filter(c => c.code.includes(filter.search));
+    // 使用非空断言
+    result = result.filter(c => c.code.includes(filter.search!));
   }
   return result;
 }
