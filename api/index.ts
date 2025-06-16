@@ -8,10 +8,14 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());           // 允许所有跨域请求
-app.use(express.json());   // 解析 JSON 请求体
+app.use(cors());
+app.use(express.json());
 
-// 注册你的路由
+// 根路径响应
+app.get("/", (req, res) => {
+  res.json({ message: "Kami Server API is running" });
+});
+
 registerRoutes(app).then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
